@@ -41,10 +41,7 @@ def frame_logic():  # Don't change the name of this function
     """
     body=get_snake_body()
     if body[0]==get_food_position():
-        rnd_pnt=random_point()
-        while rnd_pnt in body:
-            rnd_pnt=random_point()
-        change_food_location(rnd_pnt)
+        food_location(body)
         increase_score()
         get_snake().grow()
         Increase_speed()
@@ -62,9 +59,16 @@ def setup():  # Don't change the name of this function
     set_color_string("blue")
 
 
+def food_location(body):
+    rnd_pnt = random_point()
+    while rnd_pnt in body:
+        rnd_pnt = random_point()
+    change_food_location(rnd_pnt)
+
+
 # DO NOT CHANGE THIS FUNCTION
 def submit_your_functions():
     check.proton_frame_logic = frame_logic
     check.proton_grow_snake=grow_snake
     check.proton_move_snake=move_snake
-
+    check.proton_change_food_location=food_location

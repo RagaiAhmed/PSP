@@ -10,7 +10,6 @@ class Snake:
         Snake setup
         """
         self.head_position = create_point(GRID_SQUARE_SIZE, 0)  # keeps track of where it needs to go next
-        self.direction = Directions.Right
         # body is a queue of squares
         self.body = [create_square(0, 0)]
 
@@ -27,7 +26,7 @@ class Snake:
 
 
     def point_upwards(self):  # pretty obvious what these do
-        if (self.next_position.x-self.head_position.x)/GRID_SQUARE_SIZE ==direction_val[Directions.Down][0]:
+        if (self.next_position.y-self.head_position.y)/GRID_SQUARE_SIZE ==direction_val[Directions.Down][1]:
             return
         self.move_direction = Directions.Up
 
@@ -42,7 +41,7 @@ class Snake:
         self.move_direction = Directions.Right
 
     def point_down(self):
-        if (self.next_position.x-self.head_position.x)/GRID_SQUARE_SIZE ==direction_val[Directions.Up][0]:
+        if (self.next_position.y-self.head_position.y)/GRID_SQUARE_SIZE ==direction_val[Directions.Up][1]:
             return
         self.move_direction = Directions.Down
 
