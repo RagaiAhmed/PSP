@@ -17,7 +17,7 @@ def change_food_location(point):
     :param point: the point representing the next location it can be made with Point(x,y)
     where x and y are the coordinates of the new location
     """
-    game_world.food.change_location(point)
+    # game_world.food.change_location(point)
 
 
 def get_food_position():
@@ -115,7 +115,7 @@ def add_next_position_to_snake_body(snake):
     Adds the next position to snake body
     :param snake
     """
-    snake.body.append(create_square(snake.next_position.x, snake.next_position.y))
+    snake.body.append(create_square(snake.x, snake.y))
 
 
 def game_over():

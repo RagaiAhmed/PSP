@@ -7,9 +7,9 @@ from src.game_utils.point import create_point, Point
 
 
 class Directions(Enum):
-    Left = 0,
-    Right = 1,
-    Up = 2,
+    Left = 0
+    Right = 1
+    Up = 2
     Down = 3
 
 

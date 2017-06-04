@@ -25,30 +25,36 @@ class Snake:
         if game_utils.function_proxy.proton_move_snake is not None:
             game_utils.function_proxy.proton_move_snake()
 
+
     def point_upwards(self):  # pretty obvious what these do
-        if self.move_direction == Directions.Down:
+        if (self.next_position.x-self.head_position.x)/GRID_SQUARE_SIZE ==direction_val[Directions.Down][0]:
             return
         self.move_direction = Directions.Up
 
     def point_left(self):
-        if self.move_direction == Directions.Right:
+        if (self.next_position.x-self.head_position.x)/GRID_SQUARE_SIZE ==direction_val[Directions.Right][0]:
             return
         self.move_direction = Directions.Left
 
     def point_right(self):
-        if self.move_direction == Directions.Left:
+        if (self.next_position.x-self.head_position.x)/GRID_SQUARE_SIZE ==direction_val[Directions.Left][0]:
             return
         self.move_direction = Directions.Right
 
     def point_down(self):
-        if self.move_direction == Directions.Up:
+        if (self.next_position.x-self.head_position.x)/GRID_SQUARE_SIZE ==direction_val[Directions.Up][0]:
             return
         self.move_direction = Directions.Down
 
     def move_head_to_next_location(self):
         # Calculate the next position
-        self.head_position = self.next_position
+        self.head_position = get_next_point(self.head_position, self.move_direction)
+        self.body[0]=self.head_position
+        long=len(self.body)
+        for i in range (1,long):
+            self.body[long-i]=self.body[long-i+1]
         self.next_position = get_next_point(self.head_position, self.move_direction)
+
 
     def grow(self):
         if game_utils.function_proxy.proton_grow_snake is not None:

@@ -38,7 +38,6 @@ class World:
         # Clear the screen to avoid drawing overlapping things
         # that's why locating objects and drawing them must be
         # separated
-        self.artist.clear()
 
         # World over, clear all and don't refresh frames
         if self.snake.crashed:
@@ -53,12 +52,16 @@ class World:
         self.food.change_state()  # makes the food flash
         screen.ontimer(lambda: self.next_frame(), game_utils.REFRESH_INTERVAL)
 
-        score_str = 'Score: ' + str(self.score)
-        src.basic_functions.print_text_to_screen(-350, 270, score_str)
+
 
     def render_screen(self):
         # # Rendering updates
+        self.artist.clear()
+        score_str = 'Score: ' + str(self.score)
+        src.basic_functions.print_text_to_screen(-350, 270, score_str)
         self.food.draw_self()  # show the food and snake
         self.snake.draw_self()
         screen.update()
         screen.ontimer(self.render_screen, 15)
+
+

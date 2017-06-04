@@ -1,6 +1,6 @@
 import src.game_utils.function_proxy as check
 from src.basic_functions import *
-
+speed=1000
 """
     This file is the one you'll be working on 
     read the documentation of the functions to know 
@@ -13,7 +13,9 @@ def move_snake():
     """
     This function controls how the snake moves
     """
-    raise NotImplementedError("Implement move_snake() function then remove the line starting with raise")
+    move_snake_head_to_next()
+    screen.ontimer(move_snake, speed)
+    # raise NotImplementedError("Implement move_snake() function then remove the line starting with raise")
 
 
 # TODO:: implement this
@@ -54,3 +56,4 @@ def setup():  # Don't change the name of this function
 # DO NOT CHANGE THIS FUNCTION
 def submit_your_functions():
     check.proton_frame_logic = frame_logic
+    check.proton_move_snake = move_snake()
