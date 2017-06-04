@@ -1,7 +1,9 @@
 from src.game_utils import *
-from src.game_utils.game_setup import game_world
+import tkinter.messagebox
 from src.game_utils.utils import turtle, clear_turtle, kill_game, get_random_point, out_of_screen, get_next_point
 from src.game_utils.square import create_square
+from src.game_utils.game_setup import World,game_world
+
 
 
 """
@@ -17,7 +19,7 @@ def change_food_location(point):
     :param point: the point representing the next location it can be made with Point(x,y)
     where x and y are the coordinates of the new location
     """
-    # game_world.food.change_location(point)
+    game_world.food.change_location(point)
 
 
 def get_food_position():
@@ -120,7 +122,10 @@ def add_next_position_to_snake_body(snake):
 
 def game_over():
     """Ends the game and closes the window"""
+    tkinter.messagebox._show("Game Over","You have lost at Score of {}".format(game_world.score))
     kill_game()
+
+
 
 
 def set_color_string(color):
@@ -184,3 +189,12 @@ def random_point():
     :return: returns a Point(x,y) on the screen
     """
     return get_random_point()
+
+
+def Increase_speed():
+    """
+    Changes snake moving speed
+    :return: None 
+    """
+    global  move_time
+    move_time *= 4/5

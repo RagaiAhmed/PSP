@@ -1,7 +1,14 @@
+# declares a class to make points with just x and y positions
+
 class Point:
     """Represents a point"""
 
     def __init__(self, x, y):
+        """
+        
+        :param x:position on x-axis
+        :param y:position on y-axis
+        """
         self.x = x
         self.y = y
 

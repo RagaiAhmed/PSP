@@ -1,6 +1,6 @@
 import src.game_utils.function_proxy as check
 from src.basic_functions import *
-speed=1000
+
 """
     This file is the one you'll be working on 
     read the documentation of the functions to know 
@@ -8,22 +8,23 @@ speed=1000
 """
 
 
-# TODO:: implement this
 def move_snake():
     """
     This function controls how the snake moves
     """
+    # to obvious to be explained
     move_snake_head_to_next()
-    screen.ontimer(move_snake, speed)
-    # raise NotImplementedError("Implement move_snake() function then remove the line starting with raise")
+    body=get_snake_body()
+    if body[0] in body[1:] or is_out_of_screen(body[0]):
+        game_over()
+    screen.ontimer(move_snake, move_time)
 
 
-# TODO:: implement this
-def grow_snake():
+def grow_snake(body):
     """
     This function is responsible for growing the snake when it eats food
     """
-    raise NotImplementedError("Implement grow_snake() function then remove the line starting with raise")
+    body.append(body[len(body) - 1])
 
 
 # TODO:: implement this
@@ -38,7 +39,15 @@ def frame_logic():  # Don't change the name of this function
                 change_food_location(random_point())
                 grow_snake()
     """
-    change_food_location(random_point())
+    body=get_snake_body()
+    if body[0]==get_food_position():
+        rnd_pnt=random_point()
+        while rnd_pnt in body:
+            rnd_pnt=random_point()
+        change_food_location(rnd_pnt)
+        increase_score()
+        get_snake().grow()
+        Increase_speed()
 
 
 # TODO:: (optional) add to this function if needed
@@ -56,4 +65,6 @@ def setup():  # Don't change the name of this function
 # DO NOT CHANGE THIS FUNCTION
 def submit_your_functions():
     check.proton_frame_logic = frame_logic
-    check.proton_move_snake = move_snake()
+    check.proton_grow_snake=grow_snake
+    check.proton_move_snake=move_snake
+

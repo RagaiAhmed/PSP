@@ -70,7 +70,7 @@ def out_of_screen(point):
     cv = screen.getcanvas()
     max_x, max_y = cv.canvwidth, cv.canvheight
 
-    if not_in_range(abs(point.x), max_x) or not_in_range(abs(point.y), max_y):
+    if not_in_range(point.x, max_x-GRID_SQUARE_SIZE//2) or not_in_range(point.y, max_y-GRID_SQUARE_SIZE//2):
         return True
 
     return False

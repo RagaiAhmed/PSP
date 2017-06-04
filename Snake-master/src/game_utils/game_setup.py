@@ -20,4 +20,5 @@ def run_game_loop():
     # delay before starting the game,
     # it's rude to directly start the game once it shows up
     time.sleep(0.5)
+
     screen.mainloop()

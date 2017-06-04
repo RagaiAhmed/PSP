@@ -1,4 +1,4 @@
-from src import game_utils
+from src import game_utils,move_time
 import src.game_utils.function_proxy
 from src.game_utils import screen
 from src.game_utils.food import Food
@@ -33,16 +33,8 @@ class World:
         screen.onkeypress(self.snake.point_right, "Right")
         screen.listen()
         screen.ontimer(self.render_screen, game_utils.REFRESH_INTERVAL // 5)
-
+        screen.ontimer(self.snake.move, move_time)
     def next_frame(self):
-        # Clear the screen to avoid drawing overlapping things
-        # that's why locating objects and drawing them must be
-        # separated
-
-        # World over, clear all and don't refresh frames
-        if self.snake.crashed:
-            kill_game()
-            return
 
         # Call protons function if it exists
         if game_utils.function_proxy.proton_frame_logic is not None:
@@ -56,11 +48,11 @@ class World:
 
     def render_screen(self):
         # # Rendering updates
-        self.artist.clear()
         score_str = 'Score: ' + str(self.score)
+        self.artist.clear()
+        self.snake.draw_self()
         src.basic_functions.print_text_to_screen(-350, 270, score_str)
         self.food.draw_self()  # show the food and snake
-        self.snake.draw_self()
         screen.update()
         screen.ontimer(self.render_screen, 15)
 

@@ -6,8 +6,8 @@ class Food:
     """Food representation in game"""
 
     def __init__(self, point):
-        self.position = point
-        self.is_blinking = True
+        self.position = point # food position
+        self.is_blinking = True # if true the food shows else it hides using it we can make blinking
 
     def __repr__(self):
         """
@@ -24,7 +24,12 @@ class Food:
         return self.__repr__()
 
     def change_location(self, point):
-        # I haven't programmed it to spawn outside the snake's body yet
+        """
+        changes the food location
+        
+        :param point: location to be set 
+        :return: None
+        """
         self.position = point
 
     def draw_self(self):
