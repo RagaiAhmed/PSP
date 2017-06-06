@@ -1,10 +1,11 @@
+import src
+import pickle
 from src.game_utils import *
 import tkinter.messagebox
 from src.game_utils.utils import turtle, clear_turtle, kill_game, get_random_point, out_of_screen, get_next_point
 from src.game_utils.square import create_square
-from src.game_utils.game_setup import World,game_world
-
-
+from src.game_utils.game_setup import game_world
+import datetime
 
 """
     This File has all the functions you will need to build your own snake game, 
@@ -122,10 +123,17 @@ def add_next_position_to_snake_body(snake):
 
 def game_over():
     """Ends the game and closes the window"""
-    tkinter.messagebox._show("Game Over","You have lost at Score of {}".format(game_world.score))
-    kill_game()
-
-
+    src.lb.append([src.name.split()[0], game_world.score, datetime.date.today()])  # adds the data of current player
+    src.lb.sort(key=lambda x: x[1], reverse=True)  # sorting the leaderboard according to score
+    src.lb = src.lb[:5]  # maximum names are 5
+    strng = 'HighScores:\n'
+    for i in range(len(src.lb)):
+        strng += "{}) {} : {} \n  Date : {}\n".format(str(i + 1), src.lb[i][0], str(src.lb[i][1]), str(src.lb[i][2]))
+    tkinter.messagebox.showinfo("Game Over", "You have got a Score of {}\n \n {}".format(game_world.score, strng))
+    file = open("lb", "wb")  # print highscores , open leaderboard folder , save new highscores
+    pickle.dump(src.lb, file)
+    file.close()
+    kill_game()  # end game
 
 
 def set_color_string(color):
@@ -136,12 +144,6 @@ def set_color_string(color):
     turtle.fillcolor(color)
 
 
-def set_game_speed(interval):
-    """
-        This function changes the speed of the game
-        :param interval: an int that slows the speed when its larger
-    """
-    set_interval(interval)
 
 
 def increase_score():
@@ -196,5 +198,5 @@ def Increase_speed():
     Changes snake moving speed
     :return: None 
     """
-    global  move_time
-    move_time *= 4/5
+    global move_time
+    move_time *= 3 / 4

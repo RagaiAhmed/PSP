@@ -1,10 +1,10 @@
-from src import game_utils,move_time
+from src import game_utils,move_time,color
 import src.game_utils.function_proxy
 from src.game_utils import screen
 from src.game_utils.food import Food
 from src.game_utils.snake import Snake
-from src.game_utils.utils import get_random_point, kill_game
-
+from src.game_utils.utils import get_random_point,set_turtle_color_rgb,set_turtle_color_string
+import random
 
 class World:
     """
@@ -32,27 +32,30 @@ class World:
         screen.onkeypress(self.snake.point_left, "Left")
         screen.onkeypress(self.snake.point_right, "Right")
         screen.listen()
-        screen.ontimer(self.render_screen, game_utils.REFRESH_INTERVAL // 5)
-        screen.ontimer(self.snake.move, move_time)
+        screen.ontimer(self.render_screen, game_utils.move_time // 5)
     def next_frame(self):
 
         # Call protons function if it exists
         if game_utils.function_proxy.proton_frame_logic is not None:
             game_utils.function_proxy.proton_frame_logic()
 
-        # End of frame logic
         self.food.change_state()  # makes the food flash
-        screen.ontimer(lambda: self.next_frame(), game_utils.REFRESH_INTERVAL)
-
-
+        screen.ontimer(lambda: self.next_frame(), move_time)
 
     def render_screen(self):
-        # # Rendering updates
         score_str = 'Score: ' + str(self.score)
-        self.artist.clear()
+        self.artist.clear()  # clears screen
+
+        # draws snake with selected color
+        set_turtle_color_rgb(int(color[0]),int(color[1]),int(color[2]))
         self.snake.draw_self()
+
+
+        set_turtle_color_string("lime")
         src.basic_functions.print_text_to_screen(-350, 270, score_str)
+
         self.food.draw_self()  # show the food and snake
+
         screen.update()
         screen.ontimer(self.render_screen, 15)
 

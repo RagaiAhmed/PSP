@@ -12,53 +12,41 @@ def move_snake():
     """
     This function controls how the snake moves
     """
-    # to obvious to be explained
     move_snake_head_to_next()
-    body=get_snake_body()
-    if body[0] in body[1:] or is_out_of_screen(body[0]):
-        game_over()
-    screen.ontimer(move_snake, move_time)
 
 
 def grow_snake(body):
     """
     This function is responsible for growing the snake when it eats food
     """
-    body.append(body[len(body) - 1])
+    body.append(body[len(body) - 1]) # adds a cube at the last place in the body
 
 
-# TODO:: implement this
 def frame_logic():  # Don't change the name of this function
     """
-        This function now only changes the food location each frame into a random location which is obviously wrong :D, 
-        add your own code that defines what happens when each frame is drawn, it should basically move the snake and 
-        update the score and the food. 
-        a simple code example: 
-            move_snake()
-            if (get_food_position() == calculate_snake_next_position()):
-                change_food_location(random_point())
-                grow_snake()
+        Controls Frame Logic
     """
-    body=get_snake_body()
-    if body[0]==get_food_position():
+
+    snake=get_snake()
+    snake.move()
+    body=snake.body
+    if body[0] == get_food_position():
         food_location(body)
         increase_score()
-        get_snake().grow()
+        snake.grow()
         Increase_speed()
+    elif body[0] in body[1:] or is_out_of_screen(body[0]):  # checks if eaten itself or out of screen
+        game_over()
 
 
-# TODO:: (optional) add to this function if needed
+
+
 def setup():  # Don't change the name of this function
     """
     This function contains the game setup logic, add any code here that you want to 
     execute before the game is loaded  
     """
     # change speed
-    set_game_speed(180)
-    # change color
-    set_color_string("blue")
-
-
 def food_location(body):
     rnd_pnt = random_point()
     while rnd_pnt in body:
