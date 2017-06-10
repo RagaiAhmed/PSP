@@ -40,13 +40,6 @@ def frame_logic():  # Don't change the name of this function
 
 
 
-
-def setup():  # Don't change the name of this function
-    """
-    This function contains the game setup logic, add any code here that you want to 
-    execute before the game is loaded  
-    """
-    # change speed
 def food_location(body):
     rnd_pnt = random_point()
     while rnd_pnt in body:

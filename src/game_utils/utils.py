@@ -1,7 +1,6 @@
 import random
 from enum import Enum
-
-from src.game_utils import GRID_SQUARE_SIZE, turtle
+from src import GRID_SQUARE_SIZE, turtle
 from src.game_utils.game_setup import screen
 from src.game_utils.point import create_point, Point
 

@@ -1,4 +1,4 @@
-from src.game_utils import GRID_SQUARE_SIZE, turtle  # imports necessary modules
+from src import GRID_SQUARE_SIZE, turtle  # imports necessary modules
 from src.game_utils.point import Point
 
 

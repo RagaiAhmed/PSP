@@ -1,23 +1,37 @@
-# The first code to be excuted
-from src.game_utils import *  # at first it imports another modules and __init__.py code execute
+from src.game_utils import *
 from tkinter import messagebox, simpledialog, colorchooser
+from turtle import Turtle
+
 import pickle
 
-# after importing it makes a screen and a turtle
-screen.setup(width=790, height=590)  # window dimensions
-screen.title("Protonic snake!!")  # window title
+GRID_SQUARE_SIZE = 20
+move_time = 400
+
+turtle = Turtle(visible=False)
+screen = turtle.screen
+
+screen.colormode(255)
+screen.setup(width=790, height=590)
+screen.title("Protonic snake!!")
 
 messagebox.showinfo("Some Info >.<",
-                    "This game is made for PSP protons summer project.\n By using the template of Eng. Amr Fathy.\n Members of the Team :::\n 1- Hana Ghanem \n 2- Ragai Ahmed ")
-# some info about the project
-name = simpledialog.askstring("Snake Master","Enter your name :")  # gets the name
-while name==None:
-    name=simpledialog.askstring("Snake Master","You can't just cancel :3 \n please , Enter your name :")
-color = colorchooser.askcolor(title="Your Snake Color")[0]  # gets snake color
-while color==None:
-    color = colorchooser.askcolor(title="Your Snake Color,Please")[0]  # gets snake color
+                    "This game is made for PSP protons summer project.\n"
+                    "\n"
+                    "By using the template of Eng. Amr Fathy.\n"
+                    "\n"
+                    "Members of the Team :::\n"
+                    "   1- Hana Ghanem \n"
+                    "   2- Ragai Ahmed ")
 
-# getting stored leaderboard
+name = None
+color = None
+while name is None or name == "":
+    name = simpledialog.askstring("Snake Master"
+                                  , "Enter your name :")
+
+while color is None:
+    color = colorchooser.askcolor(title="Your Snake Color")[0]
+
 try:
     file = open("lb", "rb")
     lb = pickle.load(file)
