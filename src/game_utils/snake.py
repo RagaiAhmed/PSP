@@ -10,7 +10,15 @@ class Snake:
         Snake setup
         """
         self.head_position = create_point(GRID_SQUARE_SIZE, 0)  # keeps track of where it needs to go next
-        # body is a queue of squares
+        self.body = [create_square(0, 0)]
+
+        self.move_direction = Directions.Right
+        self.crashed = False  # Used to indicate end of game
+        self.next_position = get_next_point(self.head_position, self.move_direction)
+
+    def reset(self):
+
+        self.head_position = create_point(GRID_SQUARE_SIZE, 0)  # keeps track of where it needs to go next
         self.body = [create_square(0, 0)]
 
         self.move_direction = Directions.Right

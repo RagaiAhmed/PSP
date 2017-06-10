@@ -1,10 +1,10 @@
-from src import game_utils,move_time,color
+from src import turtle, move_time, color
 import src.game_utils.function_proxy
-from src.game_utils import screen
+from src import screen, game_utils
+import src
 from src.game_utils.food import Food
 from src.game_utils.snake import Snake
 from src.game_utils.utils import get_random_point,set_turtle_color_rgb,set_turtle_color_string
-import random
 
 class World:
     """
@@ -16,7 +16,7 @@ class World:
 
     def __init__(self):
         # game object has a screen, a turtle, a basic snake and a food
-        self.artist = game_utils.turtle
+        self.artist = turtle
         self.artist.up()
         self.artist.speed(0)
 
@@ -32,7 +32,7 @@ class World:
         screen.onkeypress(self.snake.point_left, "Left")
         screen.onkeypress(self.snake.point_right, "Right")
         screen.listen()
-        screen.ontimer(self.render_screen, game_utils.move_time // 5)
+        screen.ontimer(self.render_screen, src.move_time // 5)
     def next_frame(self):
 
         # Call protons function if it exists
@@ -59,4 +59,6 @@ class World:
         screen.update()
         screen.ontimer(self.render_screen, 15)
 
-
+    def reset(self):
+        self.snake.reset()
+        self.score = 0

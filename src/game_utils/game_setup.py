@@ -9,7 +9,7 @@
 """
 import time
 
-from src.game_utils import screen
+from src import screen
 from src.game_utils.world import World
 
 game_world = World()
