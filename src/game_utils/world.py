@@ -1,10 +1,11 @@
 from src import turtle, move_time, color
 import src.game_utils.function_proxy
 from src import screen, game_utils
-import src
+import src, os
 from src.game_utils.food import Food
 from src.game_utils.snake import Snake
 from src.game_utils.utils import get_random_point,set_turtle_color_rgb,set_turtle_color_string
+
 
 class World:
     """
@@ -24,7 +25,6 @@ class World:
         self.food = Food(get_random_point())
         self.score = 0
         screen.tracer(0)
-
         # Can't refactor directions to one functions
         # because of the callback
         screen.onkeypress(self.snake.point_down, "Down")
