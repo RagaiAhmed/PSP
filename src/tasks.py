@@ -34,7 +34,6 @@ def frame_logic():  # Don't change the name of this function
         food_location(body)
         increase_score()
         snake.grow()
-        Increase_speed()
     elif body[0] in body[1:] or is_out_of_screen(body[0]):  # checks if eaten itself or out of screen
         game_over()
 
