@@ -75,14 +75,14 @@ def game_over():
     pickle.dump(src.lb, file)
     file.close()
 
-    if tkinter.messagebox.askquestion("Game Over",
+    if not tkinter.messagebox.askquestion("Game Over",
                                           "You have got a Score of {}\n"
                                           " \n"
                                           " {}"
                                           " \n"
                                           " \n"
                                           " Do you want to play again ?".format(
-                                              game_world.score, strng)) == "no":
+                                              game_world.score, strng)):
         kill_game()
     else:
         src.move_time = 400
