@@ -1,4 +1,4 @@
-import src
+import src, pygame.mixer, os
 import src.game_utils.function_proxy
 from src import screen, game_utils
 from src import turtle, move_time, color
@@ -23,6 +23,16 @@ class World:
         self.snake = Snake()
         self.food = Food(get_random_point())
         self.score = 0
+
+        pygame.mixer.pre_init(44100, 16, 2, 4096)
+        pygame.mixer.init()
+        self.win_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/score.wav')
+        self.lose_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/lose.wav')
+
+        self.bck_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/background.wav')
+        self.bck_snd.play(-1)  # -1 makes background sound runs for ever
+
+
         screen.tracer(0)
         # Can't refactor directions to one functions
         # because of the callback
