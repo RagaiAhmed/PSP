@@ -2,7 +2,7 @@ import datetime, src, pickle, tkinter.messagebox, src.game_utils.game_setup, tim
 from src.game_utils.utils import turtle, clear_turtle, kill_game, get_random_point, out_of_screen, get_next_point
 from src.game_utils.square import create_square
 from src.game_utils.game_setup import game_world
-
+import winsound
 
 def change_food_location(point):
     game_world.food.change_location(point)
