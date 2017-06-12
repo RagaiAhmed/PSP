@@ -13,6 +13,7 @@ except ImportError as e:
         os.system("xterm -e bash -c 'sudo pip install pygame'")
 
     else:
+        os.system("python -m ensurepip")
         os.system('pip install pygame')
 
     try:
