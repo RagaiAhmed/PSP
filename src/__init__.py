@@ -5,7 +5,7 @@ from turtle import Turtle
 import pickle
 
 GRID_SQUARE_SIZE = 20
-move_time = 400
+move_time = 140
 
 turtle = Turtle(visible=False)
 screen = turtle.screen

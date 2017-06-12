@@ -1,10 +1,11 @@
-from src import turtle, move_time, color
+import src, pygame.mixer, os
 import src.game_utils.function_proxy
 from src import screen, game_utils
-import src
+from src import turtle, move_time, color
 from src.game_utils.food import Food
 from src.game_utils.snake import Snake
-from src.game_utils.utils import get_random_point,set_turtle_color_rgb,set_turtle_color_string
+from src.game_utils.utils import get_random_point, set_turtle_color_rgb, set_turtle_color_string
+
 
 class World:
     """
@@ -19,12 +20,20 @@ class World:
         self.artist = turtle
         self.artist.up()
         self.artist.speed(0)
-
         self.snake = Snake()
         self.food = Food(get_random_point())
         self.score = 0
-        screen.tracer(0)
 
+        pygame.mixer.pre_init(44100, 16, 2, 4096)
+        pygame.mixer.init()
+        self.win_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/score.wav')
+        self.lose_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/lose.wav')
+
+        self.bck_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/background.wav')
+        self.bck_snd.play(-1)  # -1 makes background sound runs for ever
+
+
+        screen.tracer(0)
         # Can't refactor directions to one functions
         # because of the callback
         screen.onkeypress(self.snake.point_down, "Down")
@@ -33,6 +42,7 @@ class World:
         screen.onkeypress(self.snake.point_right, "Right")
         screen.listen()
         screen.ontimer(self.render_screen, src.move_time // 5)
+
     def next_frame(self):
 
         # Call protons function if it exists

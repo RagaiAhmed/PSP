@@ -57,6 +57,10 @@ def add_next_position_to_snake_body(snake):
 
 
 def game_over():
+    # TODO implement lost sound and stop background sound using
+    # game_world.lose_snd
+    # game_world.bck_snd
+
     src.lb.append([src.name.split()[0]  # first name
                       , game_world.score  # score
                       , datetime.date.today()  # date
@@ -82,8 +86,8 @@ def game_over():
                                           " \n"
                                           " \n"
                                           " Do you want to play again ?".format(
-                                              game_world.score, strng)) == 'no':
-        time.sleep(0.5)
+                                              game_world.score, strng)) == "no":
+        time.sleep(0.2)
         kill_game()
     else:
         src.move_time = 400
@@ -97,6 +101,8 @@ def set_color_string(color):
 
 def increase_score():
     game_world.score += 1
+    # TODO Implement speed using
+    # game_world.win_snd
 
 
 def reset_score():
@@ -130,10 +136,3 @@ def random_point():
     """
     return get_random_point()
 
-
-def Increase_speed():
-    """
-    Changes snake moving speed
-    :return: None 
-    """
-    src.move_time *= 3 / 5
