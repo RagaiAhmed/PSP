@@ -1,4 +1,4 @@
-import os, platform
+import pip
 
 try:
 
@@ -7,15 +7,7 @@ try:
 except ImportError as e:
 
     print("PyGame package isn't installed..\n\tInstalling PyGame package ::")
-
-    if platform.system() == "Linux":
-        print("\tPermission Requested ::")
-        os.system("xterm -e bash -c 'sudo pip install pygame'")
-
-    else:
-        os.system("python -m ensurepip")
-        os.system('pip install pygame')
-
+    pip.main(['install',"pygame"])
     try:
         import pygame
 
