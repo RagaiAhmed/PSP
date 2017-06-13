@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0a633e9-528d-44be-90d5-238306f9c3cc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/game_utils/modules/pygame-1.9.3.tar.gz" afterPath="" />
+    <list default="true" id="b0a633e9-528d-44be-90d5-238306f9c3cc" name="Default" comment="Fix V2.5.3">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_utils/Sounds/background.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_utils/Sounds/lose.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/game_utils/Sounds/score.wav" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/game_utils/background.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/game_utils/lose.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/game_utils/score.wav" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_utils/__init__.py" afterPath="$PROJECT_DIR$/src/game_utils/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game_utils/world.py" afterPath="$PROJECT_DIR$/src/game_utils/world.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +23,41 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game_utils/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+            <state relative-caret-position="180">
+              <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="basic_functions.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/basic_functions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1818">
+              <caret line="104" column="23" lean-forward="false" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="world.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/game_utils/world.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="31" column="75" lean-forward="false" selection-start-line="31" selection-start-column="75" selection-end-line="31" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tasks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -71,11 +108,11 @@
         <option value="$PROJECT_DIR$/src/game_utils/pyaudio.py" />
         <option value="$PROJECT_DIR$/src/game_utils/modules/pyaudio.py" />
         <option value="$PROJECT_DIR$/src/game_utils/modules/__init__.py" />
-        <option value="$PROJECT_DIR$/src/game_utils/world.py" />
         <option value="$PROJECT_DIR$/src/tasks.py" />
         <option value="$PROJECT_DIR$/src/__init__.py" />
         <option value="$PROJECT_DIR$/src/basic_functions.py" />
         <option value="$PROJECT_DIR$/src/game_utils/__init__.py" />
+        <option value="$PROJECT_DIR$/src/game_utils/world.py" />
       </list>
     </option>
   </component>
@@ -146,8 +183,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -412,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497311822996</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fix V2.5.3">
+      <created>1497313170213</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1497313170213</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -485,7 +529,8 @@
     <MESSAGE value="Sound V2.5" />
     <MESSAGE value="Fix V2.5.1" />
     <MESSAGE value="Fix V2.5.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix V2.5.2" />
+    <MESSAGE value="Fix V2.5.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix V2.5.3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -763,20 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_utils/world.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="31" column="77" lean-forward="false" selection-start-line="31" selection-start-column="77" selection-end-line="31" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -791,17 +822,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/basic_functions.py">
+    <entry file="file://$PROJECT_DIR$/src/game_utils/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="104" column="23" lean-forward="true" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
+        <state relative-caret-position="180">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_utils/__init__.py">
+    <entry file="file://$PROJECT_DIR$/src/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+        <state relative-caret-position="630">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basic_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1818">
+          <caret line="104" column="23" lean-forward="false" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game_utils/world.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="31" column="75" lean-forward="false" selection-start-line="31" selection-start-column="75" selection-end-line="31" selection-end-column="75" />
           <folding />
         </state>
       </provider>
