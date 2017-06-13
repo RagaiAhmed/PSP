@@ -3,6 +3,8 @@ from src.game_utils.utils import turtle, clear_turtle, kill_game, get_random_poi
 from src.game_utils.square import create_square
 from src.game_utils.game_setup import game_world
 import winsound
+import tkinter
+
 
 def change_food_location(point):
     game_world.food.change_location(point)
@@ -58,8 +60,9 @@ def add_next_position_to_snake_body(snake):
 
 def game_over():
     # TODO implement lost sound and stop background sound using
-    # game_world.lose_snd
-    # game_world.bck_snd
+    game_world.bck_snd.stop()
+    game_world.lose_snd.play()
+
 
     src.lb.append([src.name.split()[0]  # first name
                       , game_world.score  # score
@@ -90,9 +93,10 @@ def game_over():
         time.sleep(0.2)
         kill_game()
     else:
-        src.move_time = 400
+        src.move_time = 180
         src.game_utils.game_setup.game_world.reset()
         time.sleep(0.5)
+        game_world.bck_snd.play(-1)
 
 
 def set_color_string(color):
@@ -101,8 +105,11 @@ def set_color_string(color):
 
 def increase_score():
     game_world.score += 1
-    # TODO Implement speed using
-    # game_world.win_snd
+    if src.move_time>70:
+        src.move_time=src.move_time-110
+    game_world.bck_snd.stop()
+    game_world.win_snd.play()
+    game_world.bck_snd.play(-1)
 
 
 def reset_score():
