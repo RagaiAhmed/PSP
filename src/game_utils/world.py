@@ -26,10 +26,10 @@ class World:
 
         pygame.mixer.pre_init(44100, 16, 2, 4096)
         pygame.mixer.init()
-        self.win_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/score.wav')
-        self.lose_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/lose.wav')
+        self.win_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/Sounds/score.wav')
+        self.lose_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/Sounds/lose.wav')
 
-        self.bck_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/background.wav')
+        self.bck_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/Sounds/background.wav')
         self.bck_snd.play(-1)  # -1 makes background sound runs for ever
 
 
@@ -62,7 +62,7 @@ class World:
 
 
         set_turtle_color_string("lime")
-        src.basic_functions.print_text_to_screen(-350, 270, score_str)
+        src.basic_functions.print_text_to_screen(-340, 270, score_str)
 
         self.food.draw_self()  # show the food and snake
 
