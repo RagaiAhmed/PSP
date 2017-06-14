@@ -1,4 +1,4 @@
-from src import GRID_SQUARE_SIZE, turtle  # imports necessary modules
+from src import GRID_SQUARE_SIZE, turtle
 from src.game_utils.point import Point
 
 
@@ -52,4 +52,4 @@ def draw_square(point):
         turtle.left(90)
         # draws each side
     turtle.end_fill()
-    #end filling
+    # end filling

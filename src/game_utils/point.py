@@ -1,5 +1,6 @@
 # declares a class to make points with just x and y positions
 
+
 class Point:
     """Represents a point"""
 

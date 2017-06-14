@@ -2,7 +2,6 @@ import datetime, src, pickle, tkinter.messagebox, src.game_utils.game_setup, tim
 from src.game_utils.utils import turtle, clear_turtle, kill_game, get_random_point, out_of_screen, get_next_point
 from src.game_utils.square import create_square
 from src.game_utils.game_setup import game_world
-import winsound
 import tkinter
 
 
@@ -90,9 +89,11 @@ def game_over():
                                           " \n"
                                           " Do you want to play again ?".format(
                                               game_world.score, strng)) == "no":
-        time.sleep(0.2)
+        time.sleep(0.5)
         kill_game()
+
     else:
+
         src.move_time = 180
         src.game_utils.game_setup.game_world.reset()
         time.sleep(0.5)
@@ -105,9 +106,7 @@ def set_color_string(color):
 
 def increase_score():
     game_world.score += 1
-    game_world.bck_snd.stop()
     game_world.win_snd.play()
-    game_world.bck_snd.play(-1)
 
 
 def reset_score():
