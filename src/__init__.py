@@ -34,10 +34,10 @@ class window():
         stng = self.value.get()
 
         if stng == "Slow":
-            move_time = 500
+            move_time = 180
 
         elif stng == "Fast":
-            move_time = 200
+            move_time =120
 
         else:
             move_time = 80
