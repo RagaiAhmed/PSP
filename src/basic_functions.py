@@ -59,7 +59,7 @@ def add_next_position_to_snake_body(snake):
 
 
 def game_over():
-    # TODO implement lost sound and stop background sound using
+
     game_world.bck_snd.stop()
     game_world.lose_snd.play()
 
@@ -105,8 +105,6 @@ def set_color_string(color):
 
 def increase_score():
     game_world.score += 1
-    if src.move_time>70:
-        src.move_time=src.move_time-110
     game_world.bck_snd.stop()
     game_world.win_snd.play()
     game_world.bck_snd.play(-1)

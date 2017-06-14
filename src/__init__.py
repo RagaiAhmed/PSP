@@ -5,7 +5,7 @@ from turtle import Turtle
 import pickle
 
 GRID_SQUARE_SIZE = 20
-move_time = 180
+move_time = 80
 
 turtle = Turtle(visible=False)
 screen = turtle.screen
@@ -38,3 +38,5 @@ try:
     file.close()
 except EOFError and FileNotFoundError as e:
     lb = []
+
+

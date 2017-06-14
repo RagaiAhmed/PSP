@@ -1,7 +1,7 @@
 import src, pygame.mixer, os
 import src.game_utils.function_proxy
 from src import screen, game_utils
-from src import turtle, move_time, color
+from src import turtle, color ,move_time
 from src.game_utils.food import Food
 from src.game_utils.snake import Snake
 from src.game_utils.utils import get_random_point, set_turtle_color_rgb, set_turtle_color_string
