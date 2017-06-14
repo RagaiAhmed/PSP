@@ -1,10 +1,11 @@
-import pip, time
+import pip
+import time
 
 try:
 
     import pygame
 
-except ImportError as e:
+except ImportError :
 
     print("PyGame package isn't installed..\n\tInstalling PyGame package ::")
     pip.main(['install', "--user", "pygame"])
@@ -18,5 +19,6 @@ except ImportError as e:
         quit()
 
     print("Installation Ended !")
+
 print("\nGame Starting"
       " , Enjoy ^^")

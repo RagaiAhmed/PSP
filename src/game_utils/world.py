@@ -1,7 +1,7 @@
 import src, pygame.mixer, os
 import src.game_utils.function_proxy
 from src import screen, game_utils
-from src import turtle, color ,move_time
+from src import turtle, color, move_time
 from src.game_utils.food import Food
 from src.game_utils.snake import Snake
 from src.game_utils.utils import get_random_point, set_turtle_color_rgb, set_turtle_color_string
@@ -32,7 +32,6 @@ class World:
         self.bck_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/Sounds/background.wav')
         self.bck_snd.play(-1)  # -1 makes background sound runs for ever
 
-
         screen.tracer(0)
         # Can't refactor directions to one functions
         # because of the callback
@@ -59,7 +58,6 @@ class World:
         # draws snake with selected color
         set_turtle_color_rgb(int(color[0]),int(color[1]),int(color[2]))
         self.snake.draw_self()
-
 
         set_turtle_color_string("red")
         src.basic_functions.print_text_to_screen(-340, 270, score_str)

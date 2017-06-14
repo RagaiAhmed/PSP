@@ -26,7 +26,6 @@ def frame_logic():  # Don't change the name of this function
     """
         Controls Frame Logic
     """
-
     snake=get_snake()
     snake.move()
     body=snake.body
@@ -36,7 +35,6 @@ def frame_logic():  # Don't change the name of this function
         snake.grow()
     elif body[0] in body[1:] or is_out_of_screen(body[0]):  # checks if eaten itself or out of screen
         game_over()
-
 
 
 def food_location(body):
