@@ -61,7 +61,7 @@ class World:
         self.snake.draw_self()
 
 
-        set_turtle_color_string("lime")
+        set_turtle_color_string("red")
         src.basic_functions.print_text_to_screen(-340, 270, score_str)
 
         self.food.draw_self()  # show the food and snake
