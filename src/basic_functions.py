@@ -1,8 +1,7 @@
-import datetime, src, pickle, tkinter.messagebox, src.game_utils.game_setup, time
+import datetime, src, pickle, tkinter.messagebox, time, tkinter
 from src.game_utils.utils import turtle, clear_turtle, kill_game, get_random_point, out_of_screen, get_next_point
 from src.game_utils.square import create_square
 from src.game_utils.game_setup import game_world
-import tkinter
 
 
 def change_food_location(point):
@@ -58,10 +57,26 @@ def add_next_position_to_snake_body(snake):
 
 
 def game_over():
+    """
+    - takes care of music    
+        Stops background music
+        Runs the lost sound effect
+    
+    - takes care of leader board
+        Puts current score to leader board
+        Sorts the leader board according to score
+        Limits the leader board for five names only
+        Saves the leader board 
+    
+    - Shows a message of game over with score and leader board and asks for playing again
+        yes   > Reset and start again
+        no    >  End
+
+    :return:  None
+    """
 
     game_world.bck_snd.stop()
     game_world.lose_snd.play()
-
 
     src.lb.append([src.name.split()[0]  # first name
                       , game_world.score  # score
@@ -95,7 +110,7 @@ def game_over():
     else:
 
         src.move_time = 180
-        src.game_utils.game_setup.game_world.reset()
+        game_world.reset()
         time.sleep(0.5)
         game_world.bck_snd.play(-1)
 
@@ -105,6 +120,11 @@ def set_color_string(color):
 
 
 def increase_score():
+    """
+    -Increases the score
+    -Makes score sound
+    :return: 
+    """
     game_world.score += 1
     game_world.win_snd.play()
 

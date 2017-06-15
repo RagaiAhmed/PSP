@@ -1,24 +1,18 @@
-import pip
-import time
-
-try:
+try:  # try to import PyGame package
 
     import pygame
 
-except ImportError :
+except ImportError:  # if the package not found
+
+    import pip
 
     print("PyGame package isn't installed..\n\tInstalling PyGame package ::")
-    pip.main(['install', "--user", "pygame"])
-    time.sleep(1)
-    try:
-        import pygame
 
-    except ImportError:
-        print("Please restart the game \n"
-              ", If the problem still happens check the instructions for installing pygame manually. ")
-        quit()
+    pip.main(['install', "--user", "pygame"])  # installs PyGame for the current user
 
     print("Installation Ended !")
+    print("Please restart the game \n"
+          ", If the problem still happens check the instructions for installing pygame manually. ")
+    quit()
 
-print("\nGame Starting"
-      " , Enjoy ^^")
+print("\nGame Starting, Enjoy! ")

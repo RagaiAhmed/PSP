@@ -1,5 +1,4 @@
 from src.game_utils.square import draw_square
-from src.game_utils.utils import get_random_point
 
 
 class Food:

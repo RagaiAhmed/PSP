@@ -24,7 +24,7 @@ class World:
         self.food = Food(get_random_point())
         self.score = 0
 
-        pygame.mixer.pre_init(44100, 16, 2, 4096)
+        pygame.mixer.pre_init()
         pygame.mixer.init()
         self.win_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/Sounds/score.wav')
         self.lose_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/Sounds/lose.wav')
@@ -56,7 +56,7 @@ class World:
         self.artist.clear()  # clears screen
 
         # draws snake with selected color
-        set_turtle_color_rgb(int(color[0]),int(color[1]),int(color[2]))
+        set_turtle_color_rgb(int(color[0]), int(color[1]), int(color[2]))
         self.snake.draw_self()
 
         set_turtle_color_string("red")

@@ -32,6 +32,7 @@ class Square:
     def __repr__(self):
         return self.__str__()
 
+
 # a function to create a square
 def create_square(x, y):
     return Square(x, y)

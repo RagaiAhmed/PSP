@@ -4,12 +4,16 @@ from turtle import Turtle
 import pickle
 
 
-
 class window():
     """
-        a class type of an option window for snake speed
+        a class type of an option window to choose snake speed
     """
     def __init__(self):
+        """
+            this initialize a windows of defined size and title
+            makes an option menu
+            and an ok button
+        """
 
         self.master = Tk()
         self.master.title("Snake Speed")
@@ -29,6 +33,13 @@ class window():
         self.master.mainloop()
 
     def ok(self):
+        """
+        if the ok button is hit
+        it gets the chosen speed
+        converts it to the desired time between move steps
+        closes the window
+        :return: None
+        """
         global move_time
 
         stng = self.value.get()
@@ -44,7 +55,6 @@ class window():
 
         self.master.quit()
         self.master.destroy()
-
 
 
 GRID_SQUARE_SIZE = 20
@@ -78,7 +88,7 @@ move_time = 1000
 
 window()  # opens an option window for setting speed
 
-try:
+try:  # gets saved leader board
     file = open("lb", "rb")
     lb = pickle.load(file)
     file.close()

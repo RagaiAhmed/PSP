@@ -1,6 +1,5 @@
 from src.game_utils.game_setup import *
 from src.tasks import submit_your_functions
-import turtle as TT
 
 """
     This file is the one you will use to run the game. don't mind the code here. 
