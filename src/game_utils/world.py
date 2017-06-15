@@ -24,7 +24,8 @@ class World:
         self.food = Food(get_random_point())
         self.score = 0
 
-        pygame.mixer.pre_init()
+        pygame.mixer.pre_init(0, 0, 0, 256)  # it sets values for the mixer,
+        #  0 means default and 512 is the buffer size and is decreased to fix the latency
         pygame.mixer.init()
         self.win_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/Sounds/score.wav')
         self.lose_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/Sounds/lose.wav')
