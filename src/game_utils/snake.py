@@ -89,9 +89,8 @@ class Snake:
 
     def move_head_to_next_location(self):
 
-        long = len(self.body)  # takes the length of the body
-        for i in range(1, long):
-            self.body[long - i] = self.body[long - i - 1]
+        for i in range(1, len(self.body)):
+            self.body[-i] = self.body[-i - 1]
             # takes every part from the end and changes it's position to the previous one
 
         self.head_position = get_next_point(self.head_position, self.move_direction)
