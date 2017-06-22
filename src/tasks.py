@@ -21,7 +21,7 @@ def grow_snake(body):
     This function is responsible for growing the snake when it eats food
     :param body : takes the snake body to grow  
     """
-    body.append(body[len(body) - 1])  # adds a cube at the last place in the body
+    body.append(body[-1])  # adds a cube at the last place in the body
     # where the added cube will follow the previous cube an so on
 
 
