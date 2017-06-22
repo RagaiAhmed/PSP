@@ -48,7 +48,7 @@ class window():
             move_time = 180
 
         elif stng == "Fast":
-            move_time =120
+            move_time = 120
 
         else:
             move_time = 80
@@ -64,6 +64,7 @@ screen = turtle.screen
 
 screen.colormode(255)
 screen.setup(width=790, height=590)
+
 screen.title("Protonic snake!!")
 
 messagebox.showinfo("Some Info >.<",
@@ -92,5 +93,5 @@ try:  # gets saved leader board
     file = open("lb", "rb")
     lb = pickle.load(file)
     file.close()
-except EOFError and FileNotFoundError as e:
+except (EOFError, FileNotFoundError) as e:
     lb = []

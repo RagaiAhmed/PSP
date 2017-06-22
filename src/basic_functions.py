@@ -111,8 +111,6 @@ def game_over():
 
         src.move_time = 180
         game_world.reset()
-        time.sleep(0.5)
-        game_world.bck_snd.play(-1)
 
 
 def set_color_string(color):

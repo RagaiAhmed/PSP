@@ -20,5 +20,5 @@ def run_game_loop():
     # delay before starting the game,
     # it's rude to directly start the game once it shows up
     time.sleep(0.5)
-
+    game_world.bck_snd.play(-1)  # -1 makes background sound runs for ever
     screen.mainloop()

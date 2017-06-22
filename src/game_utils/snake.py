@@ -9,21 +9,14 @@ class Snake:
         """
         Snake setup
         """
-        self.head_position = create_point(GRID_SQUARE_SIZE, 0)  # keeps track of where it needs to go next
+        self.head_position = create_point(0, 0)
         self.body = [create_square(0, 0)]
 
         self.move_direction = Directions.Right
-        self.crashed = False  # Used to indicate end of game
         self.next_position = get_next_point(self.head_position, self.move_direction)
 
     def reset(self):
-
-        self.head_position = create_point(GRID_SQUARE_SIZE, 0)  # keeps track of where it needs to go next
-        self.body = [create_square(0, 0)]
-
-        self.move_direction = Directions.Right
-        self.crashed = False  # Used to indicate end of game
-        self.next_position = get_next_point(self.head_position, self.move_direction)
+        self.__init__()
 
     def move(self):
         """
@@ -41,7 +34,7 @@ class Snake:
 
                 the bug is when you moving any direction let it be up and you need to go down
                 if you press down you won't go down because it is the opposite direction
-                but if ou pressed right and down quickly 
+                but if you pressed right and down quickly 
                 it will go down forming the bug
 
             Reason:
@@ -89,14 +82,13 @@ class Snake:
 
     def move_head_to_next_location(self):
 
-        for i in range(1, len(self.body)):
-            self.body[-i] = self.body[-i - 1]
-            # takes every part from the end and changes it's position to the previous one
+        self.body.pop()
+        # deletes the last body part
 
         self.head_position = get_next_point(self.head_position, self.move_direction)
         # calc the next head position
 
-        self.body[0] = self.head_position
+        self.body.insert(0, self.head_position)
         # set the next head position
 
         self.next_position = get_next_point(self.head_position, self.move_direction)

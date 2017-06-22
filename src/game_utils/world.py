@@ -1,4 +1,4 @@
-import src, pygame.mixer, os
+import src, pygame.mixer, os, time
 import src.game_utils.function_proxy
 from src import screen, game_utils
 from src import turtle, color, move_time
@@ -31,7 +31,6 @@ class World:
         self.lose_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/Sounds/lose.wav')
 
         self.bck_snd = pygame.mixer.Sound(os.getcwd() + '/game_utils/Sounds/background.wav')
-        self.bck_snd.play(-1)  # -1 makes background sound runs for ever
 
         screen.tracer(0)
         # Can't refactor directions to one functions
@@ -41,7 +40,7 @@ class World:
         screen.onkeypress(self.snake.point_left, "Left")
         screen.onkeypress(self.snake.point_right, "Right")
         screen.listen()
-        screen.ontimer(self.render_screen, src.move_time // 5)
+        screen.ontimer(self.render_screen, 15)
 
     def next_frame(self):
 
@@ -71,3 +70,5 @@ class World:
     def reset(self):
         self.snake.reset()
         self.score = 0
+        time.sleep(0.5)
+        self.bck_snd.play(-1)
