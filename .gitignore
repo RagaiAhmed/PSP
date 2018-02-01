@@ -100,6 +100,6 @@ ENV/
 # mypy
 .mypy_cache/
 *.pyc
-.idea/
+.*/
 lb
 *.save
