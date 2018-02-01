@@ -1,8 +1,15 @@
-# PSP
-Protons Summer Project
+# Protons Summer Project
+Is an old fashioned snake game but with colorful interface and
+music.
+
 
 Using this template:
-    https://github.com/amrufathy/Snake
+    [Snake](https://github.com/amrufathy/Snake)
 
-The project requires PyGame .
-    It installs pygame by default if not present and if the installation encounter problems please refer to install pygame manually
+## Dependencies:
+* The project requires **PyGame** .
+
+
+_It installs pygame by default if not present_
+
+_if the installation encounter problems please refer to installing pygame [manually](https://www.pygame.org/wiki/GettingStarted)_
