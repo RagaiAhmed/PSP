@@ -1,3 +1,8 @@
+import os
+import sys
+
+sys.path.append(os.path.abspath(__file__)[:-12])
+
 from src.game_utils.game_setup import *
 from src.tasks import submit_your_functions
 
@@ -12,5 +17,6 @@ def main():
     # Don't modify the below code
     submit_your_functions()
     run_game_loop()
+
 
 main()
